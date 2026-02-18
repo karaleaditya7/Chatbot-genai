@@ -1,0 +1,14 @@
+if younwant specific version of python:
+
+brew install pyenv
+pyenv install 3.11.9
+pyenv global 3.11.9
+
+
+create new env:
+
+python -m venv hf-chatbot
+source hf-chatbot/bin/activate
+
+pip install -U langchain-huggingface
+pip install -r requirements.txt
