@@ -1,8 +1,7 @@
-from app.llm import get_llm
-from langchain_core.messages import HumanMessage
+from app.llm import get_chain
 
 def start_chat():
-    llm = get_llm()
+    chain = get_chain()
 
     while True:
         user_input = input("You: ")
@@ -10,5 +9,6 @@ def start_chat():
         if user_input.lower() in ["exit", "quit", "bye"]:
             break
 
-        response = llm.invoke([HumanMessage(content=user_input)])
-        print("Bot:", response.content)
+        response = chain.invoke({"input": user_input})
+        print("Bot:", response)
+
